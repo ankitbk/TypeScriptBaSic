@@ -1,0 +1,49 @@
+What is typescript ..?
+
+-Open source language from microsoft 
+- static type system - one type cannot be added to another type
+-Typescript is a superset of javascript
+-Provide optional static typing  - 
+    - What is static typing - It provide structed and error prone code
+-IDE support is a huge win
+-More robust software
+-Support new ECMAScript features
+ 
+ Why use typescrit .?
+
+ -Typed Javascript , code quality and understanding 
+ -Typed act as documentation
+    - documentation means whenever we hover over an function is shows the type of funcation it parameter
+ -Type inference
+ -Structural Types
+ -Adoption can be incremental
+ -Brand new ECMAScript features
+
+ Typescript VS Javascript 
+
+ -Typescript is a typed superset of javascript that compiles to plain Javascript 
+
+ -Typescript is a superset 
+ -All ES5/ features are aviaalble
+ -New feature are commonly added
+ -TypeScript has even more features
+
+ -ES6/7 and typescript 
+    -Import and exports
+    -Arrow functions
+    -Function parameters
+    -Spread operators
+    -Destructing 
+    -Object literal enhancements
+    -...and many more
+
+Typescrit complier  (tsc)
+
+npm i -g typescript  - for installing the tsc in the global enviroment
+tsc -version - checking the version
+tsconfig - file - it is the file which we need to configre are complier
+tsc --outDir dist this specify the destination directory with --outDir
+tsc --watch
+
+
+
