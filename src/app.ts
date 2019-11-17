@@ -400,3 +400,113 @@ function getNameFromJSON(obj: string) {
 }
 
 getNameFromJSON(serialized);
+
+// Typescript interfaces 
+
+// Interfaces define the specifications of entities and they can be implemented by functions or classes.
+//  We can define optional properties on an interface using ? and read-only properties by using the readonly keyword in the property name
+
+interface PizzaInterface {
+    name: string;
+    sizes: string[];
+}
+
+let pizza: PizzaInterface;
+
+function createPizza( name: string, sizes: string[]): PizzaInterface {
+    return {
+        name,
+        sizes,
+    };
+}
+
+
+pizza = createPizza('Pepperoni', ['small', 'medium']);
+
+// Interfaces with function types
+
+
+interface PizzaInterface1 {
+    name: string;
+    sizes: string[];
+    getAvailableSizes(): string[];
+}
+
+// how we can write the above in type
+// type getAvailableSize = () => string;
+
+let pizza1: PizzaInterface1;
+
+function createPizza1( name: string, sizes: string[]): PizzaInterface1 {
+    return {
+        name,
+        sizes,
+        getAvailableSizes() {
+            return this.sizes;
+        }
+    };
+}
+
+
+pizza1 = createPizza1('Pepperoni', ['small', 'medium']);
+
+
+interface PizzaInterface2 {
+    name: string;
+    sizes: string[];
+    getAvailableSizes(): string[];
+}
+
+// how we can write the above in type
+// type getAvailableSize = () => string;
+
+let pizza2: PizzaInterface2;
+
+function createPizza2( name: string, sizes: string[]) {
+    return {
+        name,
+        sizes,
+        getAvailableSizes() {
+            return this.sizes;
+        }
+    } as PizzaInterface2;
+}
+
+
+pizza1 = createPizza2('Pepperoni', ['small', 'medium']);
+
+// Extending interfaces
+
+interface Sizes3 {
+    sizes: string[];
+}
+
+
+interface PizzaInterface3 extends Sizes3{
+    name: string;
+    toppings?: number;              // Interfaces and optional properties 
+    [key: number]: string,          // Interfaces with Index signatures
+    [key: string]: any,  
+    getAvailableSizes(): string[];
+}
+
+
+let pizza3: PizzaInterface3;
+
+function createPizza3( name: string, sizes: string[]): PizzaInterface3 {
+    return {
+        name,
+        sizes,
+        getAvailableSizes() {
+            return this.sizes;
+        }
+    };
+}
+
+
+pizza3 = createPizza3('Pepperoni', ['small', 'medium']);
+pizza3.toppings = 1;
+pizza3[1] = 'XYZ';
+
+
+ 
