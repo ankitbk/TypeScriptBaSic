@@ -225,152 +225,162 @@
 // The any type - Note we should avoid using the any type as this is only useful in the condition where we are 
 // not aware about the input value type or the data is dynamic whose type is unknown
 
-let coupen: any;
-// any can be of any type like number , string , boolean
-coupen = 25;
-coupen = '25';
-coupen = true;
+// let coupen: any;
+// // any can be of any type like number , string , boolean
+// coupen = 25;
+// coupen = '25';
+// coupen = true;
 
-//Implicit and explicit type
+// //Implicit and explicit type
 
-//Implicit means typescript assumes a particular type depending upon the value
-//Explicit means we provide the type of a particular variable or data 
+// //Implicit means typescript assumes a particular type depending upon the value
+// //Explicit means we provide the type of a particular variable or data 
 
-let coupen1 = 'String'; // here typescript automatically consider the coupen1 type as string based on the value provided
-let coupen2: string = 'Value' // here we have declared the type or mentioned the typed
+// let coupen1 = 'String'; // here typescript automatically consider the coupen1 type as string based on the value provided
+// let coupen2: string = 'Value' // here we have declared the type or mentioned the typed
 
-//void type 
+// //void type 
 
-// void type return nothing mainly used in the impure function where the external data is been changed and not return so that 
-// type of function have the type void and we should mentioned impure functions with void as an best practise
+// // void type return nothing mainly used in the impure function where the external data is been changed and not return so that 
+// // type of function have the type void and we should mentioned impure functions with void as an best practise
 
-let selectToppping: string = 'pepperoni';
+// let selectToppping: string = 'pepperoni';
 
-function selectedToppping (topping: string):void {
-    selectToppping = topping;
-}
-
-selectedToppping('bacon');
-
-console.log(selectedToppping);
-
-// Never Type 
-
-//Never types tells typescript compiler that the value will never occur 
-
-// function orderError(error: string): never {
-//     throw new Error(error);
-//     // never going to return  a value
+// function selectedToppping (topping: string):void {
+//     selectToppping = topping;
 // }
 
-// orderError('Something went wrong');
+// selectedToppping('bacon');
 
-// Strict null check is very important when you want more strict complier to check the type null and undefined too when the value is not present
+// console.log(selectedToppping);
 
-let coupen3 : string | null = 'pizaa25'; // if we dont specify the optional type "string | null" we will get error
+// // Never Type 
 
-function removeCoupen(): void {
-    coupen3 = null;
-}
+// //Never types tells typescript compiler that the value will never occur 
 
-console.log(coupen3);
+// // function orderError(error: string): never {
+// //     throw new Error(error);
+// //     // never going to return  a value
+// // }
 
-removeCoupen();
+// // orderError('Something went wrong');
 
-console.log(coupen3);
+// // Strict null check is very important when you want more strict complier to check the type null and undefined too when the value is not present
 
+// let coupen3 : string | null = 'pizaa25'; // if we dont specify the optional type "string | null" we will get error
 
-// Union type and literal 
+// function removeCoupen(): void {
+//     coupen3 = null;
+// }
 
-// Union type is used to provide number of value options to choose from and if the value passed to the function doesnt exit it will throw an error
+// console.log(coupen3);
 
-let pizzaSize: string = 'small';
+// removeCoupen();
 
-function selectSize (size : 'small' | 'large' | 'medium') {
-    pizzaSize = size;
-}
-
-selectSize('large');
-
-console.log(`PizzaSize is ${pizzaSize}`);
-
-// function types 
-
-// it is the way to define the type of function 
-
-let sumOrder: (price: number, quantity: number) => number ;
-
-sumOrder = (x, y) => x* y;
-
-const sum = sumOrder(25, 2);
-
-console.log(`Total Sum is ${sum}`);
-
-// Function and optional argument 
-// optional argument is mentioned by "?" symbol and it is used in the scenario for example : we should always have 1 quantiy default and doesnt 
-// make sense to multiply the pizza * quantity(ie : 1)  so for that we can do the following below thing
-
-let sumOrder1: (price: number, quantity?: number) => number ;
-
-sumOrder1 = (x, y) => {
-    if(y) {
-        return x * y;
-    }
-    return x;
-}
-
-const sum1 = sumOrder1(25);
-
-console.log(`Total Sum is ${sum1}`);
-
-// default parameter in typescript functions
+// console.log(coupen3);
 
 
-let sumOrder2: (price: number, quantity?: number) => number ;
+// // Union type and literal 
 
-sumOrder2 = (x, y = 0) => x * y; 
+// // Union type is used to provide number of value options to choose from and if the value passed to the function doesnt exit it will throw an error
 
-const sum2 = sumOrder2(25);
-const sum3 = sumOrder2(25, 5);
+// let pizzaSize: string = 'small';
 
-console.log(`Total Sum is ${sum2}`);
-console.log(`Total Sum is ${sum3}`);
+// function selectSize (size : 'small' | 'large' | 'medium') {
+//     pizzaSize = size;
+// }
 
-// Object type - Used to define the object signature type which is defined on the fly
+// selectSize('large');
 
-let pizzaObjType : { name: string; price: number; getName(): string} = {
-    name: 'Plain old javascript',
-    price: 20,
-    getName() {
-        return pizzaObjType.name;
-    }
+// console.log(`PizzaSize is ${pizzaSize}`);
+
+// // function types 
+
+// // it is the way to define the type of function 
+
+// let sumOrder: (price: number, quantity: number) => number ;
+
+// sumOrder = (x, y) => x* y;
+
+// const sum = sumOrder(25, 2);
+
+// console.log(`Total Sum is ${sum}`);
+
+// // Function and optional argument 
+// // optional argument is mentioned by "?" symbol and it is used in the scenario for example : we should always have 1 quantiy default and doesnt 
+// // make sense to multiply the pizza * quantity(ie : 1)  so for that we can do the following below thing
+
+// let sumOrder1: (price: number, quantity?: number) => number ;
+
+// sumOrder1 = (x, y) => {
+//     if(y) {
+//         return x * y;
+//     }
+//     return x;
+// }
+
+// const sum1 = sumOrder1(25);
+
+// console.log(`Total Sum is ${sum1}`);
+
+// // default parameter in typescript functions
+
+
+// let sumOrder2: (price: number, quantity?: number) => number ;
+
+// sumOrder2 = (x, y = 0) => x * y; 
+
+// const sum2 = sumOrder2(25);
+// const sum3 = sumOrder2(25, 5);
+
+// console.log(`Total Sum is ${sum2}`);
+// console.log(`Total Sum is ${sum3}`);
+
+// // Object type - Used to define the object signature type which is defined on the fly
+
+// let pizzaObjType : { name: string; price: number; getName(): string} = {
+//     name: 'Plain old javascript',
+//     price: 20,
+//     getName() {
+//         return pizzaObjType.name;
+//     }
+// };
+
+// console.log(pizzaObjType.getName());
+
+
+// // Array types and Generics : 
+// // The implementation of generics in Typescript give us the ability to pass in a range of types to a component, adding an extra layer
+// //  of abstraction and re-usability to your code
+
+// let sizes : number[];
+
+// sizes = [1, 2, 3];
+
+// let toppins: Array<string>;
+
+// toppins = ['Pepperoni', 'bacon', 'Tomato'];
+
+// console.log(sizes, toppins);
+
+// // Tuple type : when we want a strong typed data strcture we have to use this type where the swapping or less arguments are not allowed
+// // and in union we can swap 
+
+// let pizzatuple : [string, number, boolean];
+
+// // pizzatuple = [true, 'Pepperoni', 30]; // This will throw error
+
+// pizzatuple = ['Pepperoni', 330, true]; // this will work properly
+
+
+// Type allias :
+
+type Size = 'Small' | 'Medium' | 'Large';
+
+let pizzaSizeTypeAllias : Size = 'Small';
+
+const selectSizeTypeAllias = (size: Size) => {
+    pizzaSizeTypeAllias = size;
 };
 
-console.log(pizzaObjType.getName());
-
-
-// Array types and Generics : 
-// The implementation of generics in Typescript give us the ability to pass in a range of types to a component, adding an extra layer
-//  of abstraction and re-usability to your code
-
-let sizes : number[];
-
-sizes = [1, 2, 3];
-
-let toppins: Array<string>;
-
-toppins = ['Pepperoni', 'bacon', 'Tomato'];
-
-console.log(sizes, toppins);
-
-// Tuple type : when we want a strong typed data strcture we have to use this type where the swapping or less arguments are not allowed
-// and in union we can swap 
-
-let pizzatuple : [string, number, boolean];
-
-// pizzatuple = [true, 'Pepperoni', 30]; // This will throw error
-
-pizzatuple = ['Pepperoni', 330, true]; // this will work properly
-
-
-
+selectSizeTypeAllias('Medium');
