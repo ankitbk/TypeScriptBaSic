@@ -377,10 +377,26 @@
 
 type Size = 'Small' | 'Medium' | 'Large';
 
+type callBack = (size: Size) => void;
+
 let pizzaSizeTypeAllias : Size = 'Small';
 
-const selectSizeTypeAllias = (size: Size) => {
-    pizzaSizeTypeAllias = size;
+const selectSizeTypeAllias: callBack = (X) => {
+    pizzaSizeTypeAllias = X;
 };
 
 selectSizeTypeAllias('Medium');
+
+// Type assertion 
+
+type PizzaAssertion = { name: string, toppings: number };
+
+const pizzaTypeAssertion: PizzaAssertion = { name: 'Blazing Inferno', toppings: 5 };
+
+const serialized = JSON.stringify(pizzaTypeAssertion);
+
+function getNameFromJSON(obj: string) {
+    return (JSON.parse(obj) as PizzaAssertion).name;
+}
+
+getNameFromJSON(serialized);
